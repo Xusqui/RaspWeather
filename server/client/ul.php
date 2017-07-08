@@ -22,6 +22,8 @@ function handleRequest() {
     $meta = $data['meta'];  // Metadata is required in each request.
     $clientVersionOnClient = get($meta['client_version'], NOT_AVAILABLE);
     $clientVersionOnServer = get($config['c:client_version'], NOT_AVAILABLE);
+    $meteotemplateEnabled = get($config['s:meteotemplate_enabled'], 0);
+    $wundergroundEnabled = get($config['s:wunderground_enabled'], 0);
     $logger->debug('client version: '.$clientVersionOnClient
         .' -- server has: '.$clientVersionOnServer);
 
@@ -43,6 +45,7 @@ function handleRequest() {
     $db->insertMetadata($meta);
 
     if (isset($data['temp'])) {
+      $logger->debug('Calling insertTemperature');
       $db->insertTemperature($data['temp']);
     }
 
@@ -51,12 +54,34 @@ function handleRequest() {
     }
 
     if (isset($data['temp_hum'])) {
+      $logger->debug('Calling insertTempHum');
       $db->insertTempHum($data['temp_hum']);
+    }
+
+    if (isset($data['press'])) {
+      $logger->debug('Calling insertPress');
+      $db->insertPress($data['press']);
+    }
+    
+    if (isset($data['rain'])) {
+      $logger->debug('Calling insertRain');
+      $db->insertRain($data['rain']);
+    }
+    
+    if (isset($data['vane'])) {
+      $logger->debug('Calling insertVane');
+      $db->insertVane($data['vane']);
+    }
+
+    if (isset($data['picture'])) {
+      $logger->debug('Calling insertPicture');
+      $db->insertPicture($data['picture']);
     }
 
     if (isset($data['door'])) {
       $db->insertDoor($data['door']);
     }
+    
 
     if (isset($data['pilots'])) {
       $db->insertPilotCount($data['pilots']);
@@ -71,6 +96,21 @@ function handleRequest() {
     }
 
     $db->commit();
+    
+    if ($meteotemplateEnabled == 1) {
+      $logger->debug('Calling meteotemplate');
+      $meteotemplatePASS = get($config['s:meteotemplate_password']);
+      $meteotemplateURL = get($config['s:meteotemplate_API_URL']);
+      $db->meteotemplate($meteotemplateURL, $meteotemplatePASS);
+    }
+    
+    if ($wundergroundEnabled == 1) {
+      $logger->debug('Calling wunderground');
+      $wundergroundStation = get($config['s:wunderground_station']);
+      $wundergroundPass = get($config['s:wunderground_password']);
+      $wundergroundUrl = get($config['s:wunderground_API_URL']);
+      $db->wunderground ($wundergroundUrl, $wundergroundStation, $wundergroundPass);
+    }
 
     $response['status'] = 'ok';
     // TODO: Add support for reboot, shutdown etc.

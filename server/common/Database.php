@@ -57,7 +57,7 @@ class Database {
     $this->query(
         'CREATE TABLE IF NOT EXISTS wind (start_ts BIGINT PRIMARY KEY, '
         .'end_ts BIGINT NOT NULL, avg FLOAT NOT NULL, max FLOAT NOT NULL, max_ts BIGINT NOT NULL, '
-        .'hist_id INT NOT NULL, buckets INT NOT NULL)');
+        .'min FLOAT NOT NULL, min_ts BIGINT NOT NULL, hist_id INT NOT NULL, buckets INT NOT NULL)');
     $this->query(
         'CREATE TABLE IF NOT EXISTS hist '
         .'(id INT PRIMARY KEY AUTO_INCREMENT, v INT NOT NULL, p FLOAT NOT NULL)');
@@ -81,10 +81,31 @@ class Database {
         .'text TEXT NOT NULL)');
     $this->query(
         'CREATE TABLE IF NOT EXISTS config (k VARCHAR(200) PRIMARY KEY, v TEXT NOT NULL)');
+    $this->query(
+        'CREATE TABLE IF NOT EXISTS pressure (ts BIGINT PRIMARY KEY, p FLOAT)');
+    $this->query(
+        'CREATE TABLE IF NOT EXISTS wind_dir (ts BIGINT PRIMARY KEY, d FLOAT)');
+    $this->query(
+	'CREATE TABLE IF NOT EXISTS camera (ts BIGINT PRIMARY KEY)');
+    $this->query(
+        'CREATE TABLE IF NOT EXISTS rain (ts BIGINT PRIMARY KEY, amount FLOAT)');
   }
 
   public function dropTablesExceptConfig() {
-    $this->query('DROP TABLE IF EXISTS temp, wind, hist, link, meta, door, pilots, temp_hum, adc');
+    $this->query('TRUNCATE TABLE adc');
+    $this->query('TRUNCATE TABLE camera');
+    $this->query('TRUNCATE TABLE door');
+    $this->query('TRUNCATE TABLE hist');
+    $this->query('TRUNCATE TABLE link');
+    $this->query('TRUNCATE TABLE meta');
+    $this->query('TRUNCATE TABLE pilots');
+    $this->query('TRUNCATE TABLE pressure');
+    $this->query('TRUNCATE TABLE rain');
+    $this->query('TRUNCATE TABLE status');
+    $this->query('TRUNCATE TABLE temp');
+    $this->query('TRUNCATE TABLE temp_hum');
+    $this->query('TRUNCATE TABLE wind');
+    $this->query('TRUNCATE TABLE wind_dir');
     $this->log->notice('tables dropped');
     unset($this->config);
   }
@@ -95,12 +116,13 @@ class Database {
     $this->query('DELETE FROM hist WHERE id < (SELECT COALESCE('
       .'(SELECT hist_id FROM wind ORDER BY start_ts ASC LIMIT 1),'
       .'9223372036854775807))');  // maximum BIGINT; in case wind is empty
-    foreach (array('temp', 'link', 'meta', 'door', 'pilots', 'temp_hum', 'adc') as $table) {
+    foreach (array('temp', 'link', 'meta', 'door', 'pilots', 'temp_hum', 'adc', 'pressure', 'wind_dir', 'camera', 'rain', 'status') as $table) {
       $this->query('DELETE FROM '.$table.' WHERE ts < '.$timestamp);
     }
   }
 
   public function insertTemperature($temp) {
+    $this->log->debug('insertTemperature function starts');
     if (count($temp) == 0) {
       $this->log->warning('received empty temperature measurements');
       return;
@@ -115,6 +137,7 @@ class Database {
 
     $q = 'REPLACE INTO temp (ts, t) VALUES '.$q;
     $this->query($q);
+    $this->log->debug('insertTemperature function ends');
   }
 
   public function insertLinkStatus($linkStatus) {
@@ -144,19 +167,24 @@ class Database {
    * @return integer The latest end timestamp (for latency computation). 0 indicates no data.
    */
   public function insertWind($samples) {
+    $this->log->debug('insertWind function starts');
     foreach ($samples as $stats) {
       // Insert histogram data first because we reference the hist ID in the wind table.
       $histogram = $stats['hist'];
       $histId = $this->insertHistogram($histogram);
       $buckets = count($histogram);
-      $q = 'REPLACE INTO wind (start_ts, end_ts, avg, max, max_ts, hist_id, buckets) VALUES ('
+      $this -> APIsU = strval($stats['start_ts']);
+      $this -> APIsW = strval($stats['avg']);
+      $this -> APIsG = strval($stats['max']);
+      $q = 'REPLACE INTO wind (start_ts, end_ts, avg, max, max_ts, min, min_ts, hist_id, buckets) VALUES ('
           .$stats['start_ts'].','.$stats['end_ts'].','.$stats['avg'].','
-          .$stats['max'].','.$stats['max_ts'].','.$histId.','.$buckets.')';
+          .$stats['max'].','.$stats['max_ts'].','.$stats['min'].','.$stats['min_ts'].','.$histId.','.$buckets.')';
       $this->query($q);
     }
 
     $c = count($samples);
     return $c > 0 ? $samples[$c - 1]['end_ts'] : 0;
+    $this->log->debug('insertWind function ends');
   }
 
   /** Returns the first (lowest) AUTO_INCREMENT ID generated, or NULL on error. */
@@ -187,6 +215,7 @@ class Database {
   }
 
   public function insertTempHum($tempHum) {
+        $this->log->debug('insertTempHum function starts');
     if (count($tempHum) == 0) {
       $this->log->warning('received empty temp_hum data');
       return;
@@ -199,6 +228,8 @@ class Database {
       if ($q) {
         $q .= ',';
       }
+      $this -> APIsT = strval($v[1]);
+      $this -> APIsH = strval($v[2]);
       $q .= '('.$v[0].','.$v[1].','.$v[2].')';
     }
 
@@ -206,8 +237,165 @@ class Database {
       $q = 'REPLACE INTO temp_hum (ts, t, h) VALUES '.$q;
       $this->query($q);
     }
+    $this->log->debug('insertTempHum function ends');
   }
 
+  public function insertPicture($picture) {
+    $this->log->debug('insertPicture function starts');
+    if (count($picture) == 0) {
+      $this->log->warning('recived empty picture timestamp');
+      return;
+    }
+    $q = 'REPLACE INTO camera (ts) VALUES ('.$picture[0].')';
+    $this->query($q);
+    $this->log->debug('insertPicture function ends');
+  }
+
+  public function insertPress($press) {
+    $this->log->debug('insertPress function starts');
+    if (count($press) == 0) {
+      $this->log->warning('received empty pressure data');
+      return;
+    }
+    $q = '';
+    foreach ($press as $t) {
+      if (!$t[1]) {
+        continue;  // reading the sensor may fail
+      }
+      if ($q) {
+        $q .= ',';
+      }
+      $this -> APIsP = strval($t[1]);
+      $q .= '('.$t[0].','.$t[1].')';
+    }
+
+    if ($q) {
+      $q = 'REPLACE INTO pressure (ts, p) VALUES '.$q;
+      $this->query($q);
+    }
+    $this->log->debug('insertPress function ends');
+  }
+  
+  public function insertRain($rain) {
+    $this->log->debug('insertRain function starts');
+    if (count($rain) == 0) {
+      $this->log->warning('received empty rain data');
+      return;
+    }
+    $q = '';
+    foreach ($rain as $r) {
+      if ($q) {
+        $q .= ',';
+      }
+      $this -> APIsR = $r[1];
+      $q .= '('.$r[0].','.$r[1].')';
+    }
+    
+    if ($q) {
+      $q = 'REPLACE INTO rain (ts, amount) VALUES '.$q;
+      $this->query($q);
+    }
+    $this->log->debug('insertRain function ends');
+  }
+
+  public function insertVane($vane) {
+    $this->log->debug('insertVane function starts');
+    if (count($vane) == 0) {
+      $this->log->warning('received empty vane data');
+      return;
+    }
+    $q = '';
+    foreach ($vane as $r) {
+      if ($q) {
+        $q .= ',';
+      }
+      $this -> APIsB = $r[1];
+      $q .= '('.$r[0].','.$r[1].')';
+    }
+    
+    if ($q) {
+      $q = 'REPLACE INTO wind_dir (ts, d) VALUES '.$q;
+      $this->query($q);
+    }
+    $this->log->debug('insertVane function ends');
+
+  }
+  
+  /** Send data to meteotemplate **/
+  public function meteotemplate ($url,$pass) {
+    $this->log->debug('meteotemplate function starts');
+    $query = $url . '?PASS=' . $pass;
+    $meteotemplateU = substr($this -> APIsU, 0, 10);
+    $query .= '&U=' . $meteotemplateU;
+    if (isset ($this -> APIsT)){
+      $query .= '&T=' . $this -> APIsT;
+    }
+    if (isset ($this -> APIsH)){
+      $query .= '&H=' . $this -> APIsH;
+    }
+    if (isset ($this -> APIsW)){
+      $query .= '&W=' . $this -> APIsW;
+    }
+    if (isset ($this -> APIsG)){
+      $query .= '&G=' . $this -> APIsG;
+    }
+    if (isset ($this -> APIsP)){
+      $query .= '&P=' . $this -> APIsP;
+    }
+    if (isset ($this -> APIsR)){
+      $query .= '&R=' . $this -> APIsR;
+    }
+    if (isset ($this -> APIsB)){
+      $query .= '&B=' . $this -> APIsB;
+    }
+    //$config = $this->getConfig();
+    //$upload_interval_seconds = get($config['c:upload_interval_seconds']);
+    //$meteotemplateRR = $meteotemplateR * (3600 / $upload_interval_seconds);
+    $callmeteotemplate = @file_get_contents($query);
+    if ($callmeteotemplate){
+      $this->log->debug('Uploaded the following data to meteotemplate: ' . $query . ' with response: ' . $callmeteotemplate);
+    } else {
+      $this->log->critical('Meteotemplate connection error');
+    }
+    $this->log->debug('meteotemplate function ends');
+  }
+  
+  public function wunderground ($url,$station,$password){
+    $this->log->debug('wunderground function starts');
+    $wundergrounddateutc = urlencode(gmdate('Y-m-d H:i:s', substr($this -> APIsU, 0, 10)));
+    $query = $url . '?action=updateraw&ID=' . $station . '&PASSWORD=' . $password . '&dateutc=' . $wundergrounddateutc;
+    if (isset ($this -> APIsB)){
+      $query .= '&winddir=' . $this -> APIsB;
+    } 
+    if (isset ($this -> APIsW)){
+      $query .= '&windspeedmph=' . (($this -> APIsW) * 0.6213712);
+    }
+    if (isset ($this -> APIsG)){
+      $query .= '&windgustmph=' . (($this -> APIsG) * 0.6213712);
+    }
+    if (isset ($this -> APIsH)){
+      $query .= '&humidity=' . $this -> APIsH;
+    }
+    if (isset ($this -> APIsT)){
+      //$this->log->debug('WUnderground ºF temperature: '. (($this -> APIsT) * 1.8 + 32));
+      $query .= '&tempf=' . ((($this -> APIsT) * 1.8) + 32);
+      
+    }
+    if (isset ($this -> APIsR)){
+      $query .= '&rainin=' . (($this -> APIsR) * 0.03937008);
+    }
+    if (isset ($this -> APIsP)){
+      $query .= '&baromin=' . (($this -> APIsP) * 0.0295299830714);
+    }
+    $callwunderground = @file_get_contents($query);
+    if ($callwunderground) {
+      $this->log->debug('Uploaded the following data to Weather Underground: ' . $query . ' with response: ' . $callwunderground);
+    } else {
+      $this->log->critical('Weather Underground connection error');
+    }
+    $this->log->debug('wunderground function ends');
+  }
+    
   public function insertDoor($door) {
     if (count($door) == 0) {
       $this->log->warning('received empty door data');

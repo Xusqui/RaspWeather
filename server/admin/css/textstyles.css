@@ -1,0 +1,93 @@
+.Style1{font-family: 'Georgia-Italic','Georgia',serif;
+font-size: 18px; 
+font-style: italic;
+margin:0;
+color: #0096FF;
+word-wrap: break-word;}
+.Style2{font-family: 'Arial-BoldMT','Arial',sans-serif;
+font-size: 12px; 
+font-weight:700; 
+margin:0;
+word-wrap: break-word;}
+.Style3{font-family: 'ArialMT','Arial',sans-serif;
+font-size: 12px; 
+margin:0;
+word-wrap: break-word;}
+.Style4{font-family: 'Georgia',serif;
+font-size: 36px; 
+font-weight:700; 
+font-style: italic;
+margin:0;
+word-wrap: break-word;}
+.Style5{font-family: 'Georgia',serif;
+font-size: 36px; 
+font-weight:700; 
+font-style: italic;
+color: #FEFB00;
+word-wrap: break-word;}
+.Style6{font-family: 'Georgia',serif;
+font-size: 36px; 
+font-weight:700; 
+font-style: italic;
+word-wrap: break-word;}
+.Style7{font-family: 'Georgia',serif;
+font-size: 20px; 
+margin:0;
+color: #FEFFFF;
+word-wrap: break-word;}
+.Style8{font-family: 'Georgia',serif;
+font-size: 36px; 
+font-weight:700; 
+font-style: italic;
+margin:0;
+color: #00aa00;
+word-wrap: break-word;}
+.Style9{font-family: 'Georgia',serif;
+font-size: 15px; 
+margin:0;
+color: #69CFFC;
+word-wrap: break-word;}
+.Style10{font-family: 'Georgia',serif;
+font-size: 13px; 
+margin:0;
+color: #ED97CD;
+word-wrap: break-word;}
+.Style11{font-family: 'Arial',sans-serif;
+font-size: 12px; 
+margin:0;
+color: #C0C0C0;
+word-wrap: break-word;}
+.Style12{font-family: 'Georgia',serif;
+font-size: 29px; 
+font-weight:700; 
+font-style: italic;
+margin:0;
+color: #69CFFC;
+word-wrap: break-word;}
+.Style13{font-family: 'Georgia',serif;
+font-size: 16px; 
+font-style: italic;
+margin:0;
+color: #A3D600;
+word-wrap: break-word;}
+.Style14{font-family: 'Georgia-Bold','Georgia',serif;
+font-size: 12px; 
+font-weight:700; 
+margin:0;
+word-wrap: break-word;}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing: grayscale}
+.animhidden{opacity: 0}
+.animvisible{opacity: 1}
+.Style18{font-family: 'Georgia-Italic','Georgia',serif;
+font-size: 18px; 
+font-style: italic;
+margin:0;
+color: #FF5800;
+word-wrap: break-word;}
+.Style19{font-family: 'Georgia-Italic','Georgia',serif;
+font-size: 14px; 
+font-style: italic;
+margin:0;
+word-wrap: break-word;}
+.animhidden{opacity: 0}
+.animvisible{opacity: 1}
