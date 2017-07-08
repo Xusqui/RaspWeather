@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>IP Anemometer</title>
+
+<link rel="stylesheet" type="text/css" href="ipa.css" />
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+<script type="text/javascript" src="ipa.js"></script>
+<script type="text/javascript">
+
+var ipaView = {};
+
+ipaView.clearElement = function(element) {
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+  return element;
+}
+
+ipaView.options = {};
+
+ipaView.requestStats = function() {
+  ipaView.options.minutes = ipa.Tools.durationStringToMinutes(
+      document.getElementById('idIpaVwPeriodInput').value);
+
+  ipaView.chart = new ipa.Chart(ipaView.options);
+  ipaView.chart.requestStats(ipaView.updateChart);
+}
+
+ipaView.updateChart = function() {
+  var chart = ipaView.chart;
+  chart.drawStatus(ipaView.clearElement(document.getElementById('idIpaVwStatus')));
+  chart.drawWindSummary(ipaView.clearElement(document.getElementById('idIpaVwSummary')));
+  chart.drawTimeSeries(ipaView.clearElement(document.getElementById('idIpaVwTime')));
+  chart.drawHistogram(ipaView.clearElement(document.getElementById('idIpaVwHist')));
+  chart.drawTempHum(ipaView.clearElement(document.getElementById('idIpaVwTempHum')));
+  chart.drawDoor(ipaView.clearElement(document.getElementById('idIpaVwDoor')));
+  chart.drawAdcChannel(ipaView.clearElement(document.getElementById('idIpaVwAdc')));
+  chart.drawPilots(ipaView.clearElement(document.getElementById('idIpaVwPilots')));
+  chart.drawLag(ipaView.clearElement(document.getElementById('idIpaVwLag')));
+  chart.drawTemperature(ipaView.clearElement(document.getElementById('idIpaVwTemp')));
+  chart.drawSignalStrength(ipaView.clearElement(document.getElementById('idIpaVwSignalStrength')));
+  chart.drawNetworkType(ipaView.clearElement(document.getElementById('idIpaVwNwType')));
+  chart.drawTransferVolume(ipaView.clearElement(document.getElementById('idIpaVwTransferVolume')));
+}
+
+ipaView.handleKeyPress = function(event) {
+  if (event.keyCode == 13) {
+    ipaView.requestStats();
+  }
+}
+
+ipaView.expand = function() {
+  ipaView.options.timeSeriesPoints = 123456;  // effectively disable downsampling
+  var charts = document.getElementsByClassName('ipaVwExpand');
+  for (var i = 0; i < charts.length; ++i) {
+    charts[i].style.width = '100%';
+  }
+  ipaView.updateChart();
+}
+
+google.setOnLoadCallback(ipaView.requestStats);
+
+</script>
+
+</head>
+<body>
+<div id="idIpaVwStatus" class="ipaVwElementWidth"></div>
+<div id="idIpaVwPeriodSelector" class="ipaVwElementWidth ipaVwElementCenter">
+  Minutes:
+  <input id="idIpaVwPeriodInput" type="text" maxlength="8" size="4"
+      onkeypress="ipaView.handleKeyPress(event)" value="60" />
+  <button onclick="ipaView.requestStats()">Load</button>
+  <div id="idIpaSpinnerContainer"></div>
+</div>
+<div id="idIpaVwSummary" class="ipaVwContainer ipaVwElementWidth"></div>
+<div id="idIpaVwTime" class="ipaVwElementWidth ipaVwExpand"></div>
+<div id="idIpaVwHist" class="ipaVwElementWidth ipaVwExpand"></div>
+<h3>Pilot count</h3>
+<div id="idIpaVwPilots" class="ipaVwElementWidthHeight ipaVwExpand"></div>
+<h3>Weather</h3>
+<div id="idIpaVwTempHum" class="ipaVwElementWidthHeight ipaVwExpand"></div>
+<h3>Shed door</h3>
+<div id="idIpaVwDoor" class="ipaVwElementWidthHeight ipaVwExpand"></div>
+<h3>A/D converter channel 7</h3>
+<div id="idIpaVwAdc" data-channel="7" data-label="Volt" class="ipaVwElementWidthHeight ipaVwExpand">
+    </div>
+<h3>System status (last 24h)</h3>
+<div id="idIpaVwLag" class="ipaVwElementWidth ipaVwExpand"></div>
+<div id="idIpaVwTemp" class="ipaVwElementWidth ipaVwExpand"></div>
+<div id="idIpaVwSignalStrength" class="ipaVwElementWidth ipaVwExpand"></div>
+<div id="idIpaVwTransferVolume" class="ipaVwElementWidth ipaVwExpand"></div>
+<div id="idIpaVwNwType" class="ipaVwElementWidth ipaVwExpand"></div>
+<div class="ipaVwElementWidth ipaVwElementCenter">
+  <button onclick="ipaView.expand()">Max Width</button>
+</div>
+
+</body>
+</html>
