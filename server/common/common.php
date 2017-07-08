@@ -8,12 +8,13 @@ ini_set('precision', 14);
 
 // Internal constants.
 define('PHP_MIN_VERSION', '5.3');
-define('LOG_DIR', '../logs');
+define('WEATHER_ABSOLUTE_PATH','/var/www/html');
+define('LOG_DIR', WEATHER_ABSOLUTE_PATH . '/logs');
 define('LOG_PATTERN', '/log_(\d\d\d\d)-(\d\d)-(\d\d)\.txt/');  // for pruning log files
-define('CONFIG_PHP', '../common/config.php');
-define('CLIENT_APP_ZIP_FILENAME', '../client/ipa-client.zip');
-define('CLIENT_APP_CFG_FILENAME', 'ipa.cfg');  // filename inside .zip
-define('CONFIG_DEFAULT_FILENAME', '../admin/default.cfg');
+define('CONFIG_PHP', WEATHER_ABSOLUTE_PATH . '/common/config.php');
+define('CLIENT_APP_ZIP_FILENAME', WEATHER_ABSOLUTE_PATH . '/client/weather-client.zip');
+define('CLIENT_APP_CFG_FILENAME', 'weather.cfg');  // filename inside .zip
+define('CONFIG_DEFAULT_FILENAME', WEATHER_ABSOLUTE_PATH . '/admin/default.cfg');
 // Maximum amount of time the desired window size is shifted back to compensate for upload
 // latency. TODO: This (and possibly other values) should be configurable.
 define('WIND_MAX_LATENCY', 15 * 60 * 1000);  // 15 minutes
@@ -21,7 +22,7 @@ define('CLIENT_APP_MAX_SIZE', 1024 * 1024);  // 1MB
 
 function autoloader($class) {
   // TODO: This is silly because it breaks when requests aren't exactly one directory deep.
-  include '../common/' . str_replace('\\', '/', $class) . '.php';
+  include WEATHER_ABSOLUTE_PATH . '/common/' . str_replace('\\', '/', $class) . '.php';
 }
 spl_autoload_register('autoloader');
 
@@ -41,7 +42,7 @@ function checkRequirements() {
     }
   }
   if (!is_readable(CONFIG_PHP)) {
-    $unmet[] = 'Copy the file ../common/config-sample.php to '.CONFIG_PHP.' and edit it.';
+    $unmet[] = 'Copy the file ' . WEATHER_ABSOLUTE_PATH .'common/config-sample.php to '.CONFIG_PHP.' and edit it.';
   }
   if (!function_exists('mysqli_connect')) {
     $unmet[] = 'The mysqli extension is missing (try apt-get install php5-mysql).';
