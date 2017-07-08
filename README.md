@@ -1,14 +1,20 @@
-IP Anemometer
+RaspWeather
 =============
 
-This is a hardware+software project. A wind sensor is connected to a Raspberry
-Pi via the GPIO interface. The Pi collects measurements and uploads them to a
-web server, which stores them in a MySQL database. The server shows various
-statistics, such as wind speed over time, average, maximum and a histogram.
+Fork project from IP-Anemometer (https://github.com/zieren/ip-anemometer )
 
-Also supported:
+This is a hardware+software project. A completely DIY Personal Weather Station
+to store data locally in a Raspberry Pi and promote to the web (WUnderground,
+MeteoTemplate, and more to come).
+
+Sensors:
 - DHT22 type sensor for temperature and humidity.
-- MCP3008 analog/digital converter for custom inputs, e.g. voltage.
-- Digital switches, e.g. "door open" detection and pilot counter.
+- MCP3008 analog/digital converter for Weather Vane and other custom inputs
+- BMP183 pressure sensor
+- Anemometer
+- Wind Vane
+- Rain Gauge
 
-See http://zieren.de for more information.
+- More sensors to come
+
+See http://www.fernandezvillatoro.es for more information.
