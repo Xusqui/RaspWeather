@@ -58,8 +58,8 @@ $lang['retries'] = 'Retries:';
 
 #==== Rain gauge
 $lang['gauge'] = 'Rain gauge';
-$lang['wide'] = 'Wide (mm):';
-$lang['long'] = 'Long (mm):';
+$lang['wide'] = 'Wide(mm):';
+$lang['long'] = 'Long(mm):';
 $lang['drops'] = 'Drops (number):';
 #====
 
