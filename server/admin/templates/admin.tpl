@@ -69,6 +69,30 @@
                  -moz-box-shadow: 2px 2px 2px #bababa,  inset 0px 0px 1px #ffffff;  
                  box-shadow:2px 2px 2px #bababa, inset 0px 0px 1px #ffffff;
             }
+
+            .button3{
+                 text-decoration:none; 
+                 text-align:center; 
+                 padding:5px 5px; 
+                 border:solid 4px #90720a; 
+                 -webkit-border-radius:50px;
+                 -moz-border-radius:50px; 
+                 border-radius: 50px; 
+                 font:15px Arial, Helvetica, sans-serif; 
+                 font-weight:bold; 
+                 color:#E5FFFF; 
+                 background-color:#4cc73b; 
+                 background-image: -moz-linear-gradient(top, #ccc73b 0%, #a9a54c 100%); 
+                 background-image: -webkit-linear-gradient(top, #ccc73b 0%, #a9a54c 100%); 
+                 background-image: -o-linear-gradient(top, #ccc73b 0%, #a9a54c 100%); 
+                 background-image: -ms-linear-gradient(top, #ccc73b 0% ,#a9a54c 100%); 
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9a54c', endColorstr='#a9a54c',GradientType=0 ); 
+                 background-image: linear-gradient(top, #ccc73b 0% ,#a9a54c 100%);   
+                 -webkit-box-shadow:2px 2px 2px #bababa, inset 0px 0px 1px #ffffff; 
+                 -moz-box-shadow: 2px 2px 2px #bababa,  inset 0px 0px 1px #ffffff;  
+                 box-shadow:2px 2px 2px #bababa, inset 0px 0px 1px #ffffff;
+            }
+
         </style>
     </head>
     <body>
@@ -119,7 +143,7 @@
                 <div class="content" data-minheight="840">
                     <form method="post" enctype="multipart/form-data">
                         <div style="position:relative">
-                            <div class="shape_0" style="left:10px;top:71px;width:230px;height:130px;z-index:0;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_0" style="left:10px;top:70px;width:250px;height:130px;z-index:0;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
                                     <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style1">{camera}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{activated1}<input type="checkbox" value="1" name="Camera_active" id="camera_enabled" value="1"></p>
@@ -132,7 +156,7 @@
                             </div>
                         </div>
                         <div style="position:relative">
-                            <div class="shape_13" style="left:10px;top:217px;width:230px;height:200px;z-index:1;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_13" style="left:10px;top:205px;width:250px;height:200px;z-index:1;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
                                     <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style1">{baro}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{activated2}<input type="checkbox" name="BMP_active" value="1" id="pressure_enabled"></p>
@@ -146,40 +170,46 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="position:relative">
-                            <div class="shape_19" style="left:10px;top:430px;width:230px;height:205px;z-index:2;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
-                                <div style="margin: 0px 2.16px 0px 2.16px; ">
-                                    <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style1">{rasp_config}</p>
-                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{temp_shtdwn}<input type="text" name="Temp_shtdwn" value="{temperature_shutdown_at}" size="2" maxlength="2"></p>
-                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{http_req}<input type="text" name="Wait_req" value="{timeout_http_request_seconds}" size="2" maxlength="2"></p>
-                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{time_shtdwn}<input type="text" name="Tpo_shtdwn" value="{timeout_shutdown_seconds}" size="3" maxlength="3"></p>
-                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{update_every}<input type="text" name="Update" value="{upload_interval_seconds}" size="3" maxlength="3"></p>
-                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{max_upload}<input type="text" name="Max_size" value="{upload_max_size_kb}" size="4" maxlength="4"></p>
-                                </div>
-                            </div>
-                        </div>
-                      
-                        <div style="position:relative">
-                            <div class="shape_11" style="left:10px;top:645px;width:230px;height:80px;z-index:5;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
-                                <div style="margin: 0px 2.16px 0px 2.16px;">
-                                    <p style="line-height:21px;margin-top:opx;margin-bottom:11px;text-align:center;" class="Style1">{connection}</p>
-                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{modem}<input type="checkbox" name="Huawei_enabled" value="1" id="Huawei_enabled"></p>
-                                    <script type="text/javascript">
-                                      document.getElementById("Huawei_enabled").checked = {huawei_enabled};
-                                    </script>
-                                </div>
-                            </div>
-                        </div>
 
                         <div style="position:relative">
-                            <div class="shape_5" style="left:255px;top:71px;width:260px;height:80px;z-index:20;position:absolute;border-size:1px;border: 2px solid red; border-radius: 10px;">
+                            <div class="shape_23" style="left:10px;top:410px;width:250px;height:390px;z-index:8;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                                <div style="margin: 0px 2.16px 0px 2.16px; ">
+                                    <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style18">{server_ext}</p>
+                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{server_meteotemplate}<input type="checkbox" name="Meteotemplate_enabled" value="1" id="Meteotemplate_enabled"></p>
+                                    <script type="text/javascript">
+                                        document.getElementById("Meteotemplate_enabled").checked = {meteotemplate_enabled};
+                                    </script>
+                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{server_meteotemplate_API}<input type="text" name="Meteotemplate_API_URL" value="{meteotemplate_API_URL}"></p>
+                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{server_meteotemplate_secret}<input type="password" name="Meteotemplate_password" value="{meteotemplate_password}"></p>
+                                    <hr />
+                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{server_wunderground}<input type="checkbox" name="Wunderground_enabled" value="1" id="Wunderground_enabled"></p>
+                                    <script type="text/javascript">
+                                        document.getElementById("Wunderground_enabled").checked = {wunderground_enabled};
+                                    </script>
+                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{server_wunderground_url}<input type="text" name="Wunderground_url" value="{wunderground_API_URL}"></p>
+                                    <p style="line-height:14px;margin-botton:11px;margin-top:0px;" class="Style3">{server_wunderground_station}<input type="text" name="Wunderground_station" value="{wunderground_station}"></p>
+                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{password}<input type="password" name="Wunderground_pass" value="{wunderground_password}"></p>
+                                    <hr />
+                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{server_pws}<input type="checkbox" name="PWS_enabled" value="1" id="PWS_enabled"></p>
+                                    <script type="text/javascript">
+                                        document.getElementById("PWS_enabled").checked = {pwsweather_enabled};
+                                    </script>
+                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{server_pws_url}<input type="text" name="PWS_url" value="{pwsweather_API_URL}"></p>
+                                    <p style="line-height:14px;margin-botton:11px;margin-top:0px;" class="Style3">{server_wunderground_station}<input type="text" name="PWS_station" value="{pwsweather_station}"></p>
+                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{password}<input type="password" name="PWS_pass" value="{pwsweather_password}"></p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div style="position:relative">
+                            <div class="shape_5" style="left:270px;top:70px;width:250px;height:70px;z-index:20;position:absolute;border-size:1px;border: 2px solid red; border-radius: 10px;">
                                 <div style="margin: 0px 0px 0px 0px; ">
                                     <p style="text-align:center;margin-top:10px;margin-bottom:11px;" class="Style1">{ver}<br /><span class="Style18">{client_version}</span></p>
                                 </div>
                             </div>
                         </div>
                         <div style="position:relative">
-                            <div class="shape_9" style="left:255px;top:160px;width:260px;height:165px;z-index:3;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_9" style="left:270px;top:145px;width:250px;height:165px;z-index:3;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
                                     <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style1">{temp}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{activated2}<input type="checkbox" name="DHT_active" id="dht_enabled" value="1"></p>
@@ -209,7 +239,7 @@
                             </div>
                         </div>
                         <div style="position:relative">
-                            <div class="shape_15" style="left:255px;top:335px;width:260px;height:200px;z-index:4;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_15" style="left:270px;top:315px;width:250px;height:200px;z-index:4;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
                                     <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style1">{gauge}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{activated2}<input type="checkbox" name="Pluvio_active" value="1" id="rain_enabled"></p>
@@ -240,7 +270,7 @@
                             </div>
                         </div>
                         <div style="position:relative">
-                            <div class="shape_11" style="left:255px;top:545px;width:260px;height:135px;z-index:5;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_11" style="left:270px;top:520px;width:250px;height:135px;z-index:5;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
                                     <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style1">{client_log}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{backups}<input type="text" name="Num_bck" value="{logging_backup_count}" size="2" maxlength="2"></p>
@@ -266,7 +296,7 @@
                             </div>
                         </div>
                         <div style="position:relative">
-                            <div class="shape_11" style="left:255px;top:690px;width:260px;height:80px;z-index:5;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_11" style="left:270px;top:660px;width:250px;height:80px;z-index:5;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px;">
                                     <p style="line-height:21px;margin-top:opx;margin-bottom:11px;text-align:center;" class="Style1">{interface}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{lang}
@@ -289,8 +319,21 @@
                                 </div>
                             </div>
                         </div>
+
                         <div style="position:relative">
-                            <div class="shape_17" style="left:535px;top:71px;width:250px;height:280px;z-index:6;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <a href="">
+                            <div style="left:270px;top:745px;width:250px;height:100px;z-index:6;position:absolute;border-size:1px;border:2px solid grey;border-radius:10px;">
+                                <div style="margin: 8px 2.16px 2.16px 2.16px; ">
+                                    <p style="line-height:22px;text-align:center;margin-top:0px;margin-bottom:0px;" class="Style7">
+                                        <input class="button3" type="submit" name="setConfig" value="{update_config}" /> <input class="button3" type="submit" name="configDefaults" value="{default_config}" />
+                                    </p>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+
+                        <div style="position:relative">
+                            <div class="shape_17" style="left:530px;top:70px;width:250px;height:280px;z-index:6;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
                                     <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style1">{anemometer}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{activated2}<input type="checkbox" name="Wind_active" value="1" id="wind_enabled"></p>
@@ -327,7 +370,7 @@
                             </div>
                         </div>
                         <div style="position:relative">
-                            <div class="shape_25" style="left:535px;top:365px;width:250px;height:65px;z-index:7;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_25" style="left:530px;top:365px;width:250px;height:65px;z-index:7;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
                                     <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style1">{vane}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{activated1}<input type="checkbox" name="Vane_active" value="1" id="wind_vane_enabled"></p>
@@ -362,7 +405,7 @@
                             </div>
                         </div>
                         <div style="position:relative">
-                            <div class="shape_23" style="left:535px;top:520px;width:250px;height:79px;z-index:8;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_23" style="left:530px;top:520px;width:250px;height:79px;z-index:8;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
                                     <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style18">{server_log}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{level}
@@ -386,37 +429,28 @@
                             </div>
                         </div>
                         <div style="position:relative">
-                            <div class="shape_23" style="left:535px;top:610px;width:250px;height:265px;z-index:8;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_19" style="left:530px;top:610px;width:250px;height:205px;z-index:2;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
-                                    <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style18">{server_ext}</p>
-                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{server_meteotemplate}<input type="checkbox" name="Meteotemplate_enabled" value="1" id="Meteotemplate_enabled"></p>
-                                    <script type="text/javascript">
-                                        document.getElementById("Meteotemplate_enabled").checked = {meteotemplate_enabled};
-                                    </script>
-                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{server_meteotemplate_API}<input type="text" name="Meteotemplate_API_URL" value="{meteotemplate_API_URL}"></p>
-                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{server_meteotemplate_secret}<input type="password" name="Meteotemplate_password" value="{meteotemplate_password}"></p>
-                                    
-                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{server_wunderground}<input type="checkbox" name="Wunderground_enabled" value="1" id="Wunderground_enabled"></p>
-                                    <script type="text/javascript">
-                                        document.getElementById("Wunderground_enabled").checked = {wunderground_enabled};
-                                    </script>
-                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{server_wunderground_url}<input type="text" name="Wunderground_url" value="{wunderground_API_URL}"></p>
-                                    <p style="line-height:14px;margin-botton:11px;margin-top:0px;" class="Style3">{server_wunderground_station}<input type="text" name="Wunderground_station" value="{wunderground_station}"></p>
-                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{server_wunderground_pass}<input type="password" name="Wunderground_pass" value="{wunderground_password}"></p>
-
+                                    <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style1">{rasp_config}</p>
+                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{temp_shtdwn}<input type="text" name="Temp_shtdwn" value="{temperature_shutdown_at}" size="2" maxlength="2"></p>
+                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{http_req}<input type="text" name="Wait_req" value="{timeout_http_request_seconds}" size="2" maxlength="2"></p>
+                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{time_shtdwn}<input type="text" name="Tpo_shtdwn" value="{timeout_shutdown_seconds}" size="3" maxlength="3"></p>
+                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{update_every}<input type="text" name="Update" value="{upload_interval_seconds}" size="3" maxlength="3"></p>
+                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{max_upload}<input type="text" name="Max_size" value="{upload_max_size_kb}" size="4" maxlength="4"></p>
                                 </div>
                             </div>
                         </div>
+                      
                         <div style="position:relative">
-                            <a href="">
-                            <div style="left:0px;top:770px;width:650px;height:40px;z-index:6;position:absolute;">
-                                <div style="margin: 8px 2.16px 2.16px 2.16px; ">
-                                    <p style="line-height:22px;text-align:center;margin-top:0px;margin-bottom:0px;" class="Style7">
-                                        <input type="submit" name="setConfig" value="{update_config}" /> <input type="submit" name="configDefaults" value="{default_config}" />
-                                    </p>
+                            <div class="shape_11" style="left:530px;top:825px;width:250px;height:60px;z-index:5;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                                <div style="margin: 0px 2.16px 0px 2.16px;">
+                                    <p style="line-height:21px;margin-top:opx;margin-bottom:11px;text-align:center;" class="Style1">{connection}</p>
+                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{modem}<input type="checkbox" name="Huawei_enabled" value="1" id="Huawei_enabled"></p>
+                                    <script type="text/javascript">
+                                      document.getElementById("Huawei_enabled").checked = {huawei_enabled};
+                                    </script>
                                 </div>
                             </div>
-                            </a>
                         </div>
                     </form>
                     <div style="position:relative">
