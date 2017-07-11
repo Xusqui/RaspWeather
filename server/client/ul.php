@@ -24,6 +24,7 @@ function handleRequest() {
     $clientVersionOnServer = get($config['c:client_version'], NOT_AVAILABLE);
     $meteotemplateEnabled = get($config['s:meteotemplate_enabled'], 0);
     $wundergroundEnabled = get($config['s:wunderground_enabled'], 0);
+    $pwsweatherEnabled = get($config['s:pwsweather_enabled'], 0);
     $logger->debug('client version: '.$clientVersionOnClient
         .' -- server has: '.$clientVersionOnServer);
 
@@ -110,6 +111,14 @@ function handleRequest() {
       $wundergroundPass = get($config['s:wunderground_password']);
       $wundergroundUrl = get($config['s:wunderground_API_URL']);
       $db->wunderground ($wundergroundUrl, $wundergroundStation, $wundergroundPass);
+    }
+    
+    if ($pwsweatherEnabled == 1) {
+      $logger->debug('Calling PWSWeather');
+      $pwsStation = get($config['s:pwsweather_station']);
+      $pwsPass = get($config['s:pwsweather_password']);
+      $pwsUrl = get($config['s:pwsweather_API_URL']);
+      $db->pwsweather ($pwsUrl, $pwsStation, $pwsPass);
     }
 
     $response['status'] = 'ok';
