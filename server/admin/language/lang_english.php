@@ -33,6 +33,7 @@ $lang['language'] = 'Language:';
 $lang['interface'] = 'Intarface';
 $lang['modem'] = 'Huawei Modem:';
 $lang['connection'] = 'Internet Connection';
+$lang['password'] = 'Password:';
 #====
 
 #==== Camera
@@ -109,6 +110,8 @@ $lang['server_wunderground'] = 'WUnderground';
 $lang['server_wunderground_pass'] = 'Contraseña de WU:';
 $lang['server_wunderground_url'] = 'WU API URL:';
 $lang['server_wunderground_station'] = 'Station ID:';
+$lang['server_pws'] = 'PWS Weather';
+$lang['server_pws_url'] = 'PWS URL:';
 #====
 
 #==== Copyright
