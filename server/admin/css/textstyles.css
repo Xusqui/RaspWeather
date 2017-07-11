@@ -1,4 +1,5 @@
-.Style1{font-family: 'Georgia-Italic','Georgia',serif;
+@import url('https://fonts.googleapis.com/css?family=Pompiere|Quicksand|Roboto|Josefin+Slab');
+.Style1{font-family: 'Roboto',sans-serif;
 font-size: 18px; 
 font-style: italic;
 margin:0;
@@ -9,14 +10,14 @@ font-size: 12px;
 font-weight:700; 
 margin:0;
 word-wrap: break-word;}
-.Style3{font-family: 'ArialMT','Arial',sans-serif;
-font-size: 12px; 
+.Style3{font-family: 'Josefin Slab',sans-serif;
+font-size: 14px; 
 margin:0;
 word-wrap: break-word;}
-.Style4{font-family: 'Georgia',serif;
+.Style4{font-family: 'Quicksand',sans-serif;
 font-size: 36px; 
 font-weight:700; 
-font-style: italic;
+font-style: thin;
 margin:0;
 word-wrap: break-word;}
 .Style5{font-family: 'Georgia',serif;
@@ -30,17 +31,17 @@ font-size: 36px;
 font-weight:700; 
 font-style: italic;
 word-wrap: break-word;}
-.Style7{font-family: 'Georgia',serif;
-font-size: 20px; 
+.Style7{font-family: 'Roboto',sans-serif;
+font-size: 16px; 
+font-style: b
 margin:0;
 color: #FEFFFF;
 word-wrap: break-word;}
-.Style8{font-family: 'Georgia',serif;
+.Style8{font-family: 'Pompiere',cursive;
 font-size: 36px; 
-font-weight:700; 
-font-style: italic;
+font-weight:700;
 margin:0;
-color: #00aa00;
+color: #045212;
 word-wrap: break-word;}
 .Style9{font-family: 'Georgia',serif;
 font-size: 15px; 
@@ -78,7 +79,7 @@ word-wrap: break-word;}
 body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing: grayscale}
 .animhidden{opacity: 0}
 .animvisible{opacity: 1}
-.Style18{font-family: 'Georgia-Italic','Georgia',serif;
+.Style18{font-family: 'Roboto',sans-serif;
 font-size: 18px; 
 font-style: italic;
 margin:0;
@@ -91,3 +92,74 @@ margin:0;
 word-wrap: break-word;}
 .animhidden{opacity: 0}
 .animvisible{opacity: 1}
+.button1{
+    text-decoration:none; 
+    text-align:center; 
+    padding:5px 5px; 
+    border:solid 4px #720000; 
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px; 
+    border-radius: 50px; 
+    font-family: 'Roboto',serif;
+    font-size:16px;
+    font-weight:bold; 
+    color:#E5FFFF; 
+    background-color:#c73b3b; 
+    background-image: -moz-linear-gradient(top, #c73b3b 0%, #a51919 100%); 
+    background-image: -webkit-linear-gradient(top, #c73b3b 0%, #a51919 100%); 
+    background-image: -o-linear-gradient(top, #c73b3b 0%, #a51919 100%); 
+    background-image: -ms-linear-gradient(top, #c73b3b 0% ,#a51919 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a51919', endColorstr='#a51919',GradientType=0 ); 
+    background-image: linear-gradient(top, #c73b3b 0% ,#a51919 100%);   
+    -webkit-box-shadow:2px 2px 2px #bababa, inset 0px 0px 1px #ffffff; 
+    -moz-box-shadow: 2px 2px 2px #bababa,  inset 0px 0px 1px #ffffff;  
+    box-shadow:2px 2px 2px #bababa, inset 0px 0px 1px #ffffff;
+    }
+.button2{
+    text-decoration:none; 
+    text-align:center; 
+    padding:11px 32px; 
+    border:solid 4px #00720a; 
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px; 
+    border-radius: 50px; 
+    font-family: 'Roboto',serif;
+    font-size:16px;
+    font-weight:bold; 
+    color:#E5FFFF; 
+    background-color:#4cc73b; 
+    background-image: -moz-linear-gradient(top, #4cc73b 0%, #19a54c 100%); 
+    background-image: -webkit-linear-gradient(top, #4cc73b 0%, #19a54c 100%); 
+    background-image: -o-linear-gradient(top, #4cc73b 0%, #19a54c 100%); 
+    background-image: -ms-linear-gradient(top, #4cc73b 0% ,#19a54c 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#19a54c', endColorstr='#19a54c',GradientType=0 ); 
+    background-image: linear-gradient(top, #4cc73b 0% ,#19a54c 100%);   
+    -webkit-box-shadow:2px 2px 2px #bababa, inset 0px 0px 1px #ffffff; 
+    -moz-box-shadow: 2px 2px 2px #bababa,  inset 0px 0px 1px #ffffff;  
+    box-shadow:2px 2px 2px #bababa, inset 0px 0px 1px #ffffff;
+}
+
+.button3{
+    text-decoration:none; 
+    text-align:center; 
+    padding:5px 5px; 
+    border:solid 4px #90720a; 
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px; 
+    border-radius: 50px;
+    font-family: 'Roboto',serif;
+    font-size:16px;
+    font-weight:bold; 
+    color:#E5FFFF; 
+    background-color:#4cc73b; 
+    background-image: -moz-linear-gradient(top, #ccc73b 0%, #a9a54c 100%); 
+    background-image: -webkit-linear-gradient(top, #ccc73b 0%, #a9a54c 100%); 
+    background-image: -o-linear-gradient(top, #ccc73b 0%, #a9a54c 100%); 
+    background-image: -ms-linear-gradient(top, #ccc73b 0% ,#a9a54c 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9a54c', endColorstr='#a9a54c',GradientType=0 ); 
+    background-image: linear-gradient(top, #ccc73b 0% ,#a9a54c 100%);   
+    -webkit-box-shadow:2px 2px 2px #bababa, inset 0px 0px 1px #ffffff; 
+    -moz-box-shadow: 2px 2px 2px #bababa,  inset 0px 0px 1px #ffffff;  
+    box-shadow:2px 2px 2px #bababa, inset 0px 0px 1px #ffffff;
+}
+
