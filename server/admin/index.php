@@ -101,6 +101,16 @@ if (isset($_POST['clearAll'])) {
     $db->setConfig('s:wunderground_API_URL', $_POST['Wunderground_url']);
     $db->setConfig('s:wunderground_password', $_POST['Wunderground_pass']);
     $db->setConfig('s:wunderground_station', $_POST['Wunderground_station']);
+
+    if (isset($_POST['PWS_enabled'])) {
+        $db->setConfig('s:pwsweather_enabled', 1);
+    } else {
+        $db->setConfig('s:pwsweather_enabled', 0);
+    }
+    $db->setConfig('s:pwsweather_API_URL', $_POST['PWS_url']);
+    $db->setConfig('s:pwsweather_password', $_POST['PWS_pass']);
+    $db->setConfig('s:pwsweather_station', $_POST['PWS_station']);
+
     $db->setConfig('c:language', $_POST['Language']);
     
     buildClientAppZip($db);
@@ -131,6 +141,7 @@ require ('./language/lang_' . $language . '.php');
 $variables = $variables + array (
     'activated1' => $lang['activated1'],
     'activated2' => $lang['activated2'],
+    'password' => $lang['password'],
     'update_config' => $lang['update_config'],
     'default_config' => $lang['default_config'],
     'update' => $lang['update'],
@@ -188,9 +199,10 @@ $variables = $variables + array (
     'server_meteotemplate_explanation' => $lang['server_meteotemplate_explanation'],
     'server_meteotemplate_secret' => $lang['server_meteotemplate_secret'],
     'server_wunderground' => $lang['server_wunderground'],
-    'server_wunderground_pass' => $lang['server_wunderground_pass'],
     'server_wunderground_url' => $lang['server_wunderground_url'],
     'server_wunderground_station' => $lang['server_wunderground_station'],
+    'server_pws' => $lang['server_pws'],
+    'server_pws_url' => $lang['server_pws_url'],
     'interface' => $lang['interface'],
     'lang' => $lang['language'],
     'copy' => $lang['copy'],
