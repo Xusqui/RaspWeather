@@ -395,6 +395,42 @@ class Database {
     }
     $this->log->debug('wunderground function ends');
   }
+  
+  public function pwsweather ($url,$station,$password){
+    $this->log->debug('PWSWeather function starts ');
+    $pwsdateutc = urlencode(gmdate('Y-m-d H:i:s', substr($this -> APIsU, 0, 10)));
+    $query = $url . '?action=updateraw&ID=' . $station . '&PASSWORD=' . $password . '&dateutc=' . $pwsdateutc;
+    if (isset ($this -> APIsB)){
+      $query .= '&winddir=' . $this -> APIsB;
+    } 
+    if (isset ($this -> APIsW)){
+      $query .= '&windspeedmph=' . (($this -> APIsW) * 0.6213712);
+    }
+    if (isset ($this -> APIsG)){
+      $query .= '&windgustmph=' . (($this -> APIsG) * 0.6213712);
+    }
+    if (isset ($this -> APIsH)){
+      $query .= '&humidity=' . $this -> APIsH;
+    }
+    if (isset ($this -> APIsT)){
+      //$this->log->debug('WUnderground ºF temperature: '. (($this -> APIsT) * 1.8 + 32));
+      $query .= '&tempf=' . ((($this -> APIsT) * 1.8) + 32);
+      
+    }
+    if (isset ($this -> APIsR)){
+      $query .= '&rainin=' . (($this -> APIsR) * 0.03937008);
+    }
+    if (isset ($this -> APIsP)){
+      $query .= '&baromin=' . (($this -> APIsP) * 0.0295299830714);
+    }
+    $callpws = @file_get_contents($query);
+    if ($callpws) {
+      $this->log->debug('Uploaded the following data to PWSWeather: ' . $query . ' with response: ' . $callpws);
+    } else {
+      $this->log->critical('PWSWeather.com connection error');
+    }
+    $this->log->debug('PWSWeather function ends');
+  }
     
   public function insertDoor($door) {
     if (count($door) == 0) {
