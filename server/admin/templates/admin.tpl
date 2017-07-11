@@ -16,83 +16,15 @@
         <link rel="stylesheet" type="text/css" href="css/textstyles.css" />
         <script type="text/javascript" src="js/mobileRedirect.js"></script>
         <style type="text/css">
-            a img {border:0px;}
-            body {background: url('images/skulls.gif') repeat;margin: 145px auto;}
-            div.container {margin: 145px auto;width: 800px;height: 1350px;background: url('images/light_leather.jpg') repeat; border: 2px solid orange; border-radius: 10px;}
-            .shape_3 {background: url('images/grey_wood.jpg') repeat;border: 2px solid orange; border-radius: 10px;}
+        a img {border:0px;}
+            body {background: url('images/back3.png') repeat;background-attachment:fixed;background-size:cover;margin: 145px auto;}
+            div.container {margin: 145px auto;width: 800px;height: 1350px;background: url('images/cloudtile.jpg') repeat; border: 2px solid black; border-radius: 10px;}
+            .shape_3 {background: url('images/back.png') repeat;border: 2px transparent orange; border-radius: 10px;}
             .shape_6 {background: url('images/shape_6.png') no-repeat;}
             .shape_8 {background: url('images/shape_8.png') no-repeat;}
             .shape_29 {background: url('images/shape_29.png') no-repeat;}
             .shape_30 {background: url('images/shape_30.png') no-repeat;}
             @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-devicepixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx) {.shape_3 {background: url('images/shape_3@2x.png') no-repeat;background-size: 797px 56px;}.shape_6 {background: url('images/shape_6@2x.png') no-repeat;background-size: 199px 60px;}.shape_8 {background: url('images/shape_8@2x.png') no-repeat;background-size: 199px 48px;}.shape_29 {background: url('images/shape_29@2x.png') no-repeat;background-size: 144px 29px;}.shape_30 {background: url('images/shape_30@2x.png') no-repeat;background-size: 144px 29px;}}
-            .button1{
-                 text-decoration:none; 
-                 text-align:center; 
-                 padding:5px 5px; 
-                 border:solid 4px #720000; 
-                 -webkit-border-radius:50px;
-                 -moz-border-radius:50px; 
-                 border-radius: 50px; 
-                 font:18px Arial, Helvetica, sans-serif; 
-                 font-weight:bold; 
-                 color:#E5FFFF; 
-                 background-color:#c73b3b; 
-                 background-image: -moz-linear-gradient(top, #c73b3b 0%, #a51919 100%); 
-                 background-image: -webkit-linear-gradient(top, #c73b3b 0%, #a51919 100%); 
-                 background-image: -o-linear-gradient(top, #c73b3b 0%, #a51919 100%); 
-                 background-image: -ms-linear-gradient(top, #c73b3b 0% ,#a51919 100%); 
-                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a51919', endColorstr='#a51919',GradientType=0 ); 
-                 background-image: linear-gradient(top, #c73b3b 0% ,#a51919 100%);   
-                 -webkit-box-shadow:2px 2px 2px #bababa, inset 0px 0px 1px #ffffff; 
-                 -moz-box-shadow: 2px 2px 2px #bababa,  inset 0px 0px 1px #ffffff;  
-                 box-shadow:2px 2px 2px #bababa, inset 0px 0px 1px #ffffff;
-            }
-            .button2{
-                 text-decoration:none; 
-                 text-align:center; 
-                 padding:11px 32px; 
-                 border:solid 4px #00720a; 
-                 -webkit-border-radius:50px;
-                 -moz-border-radius:50px; 
-                 border-radius: 50px; 
-                 font:18px Arial, Helvetica, sans-serif; 
-                 font-weight:bold; 
-                 color:#E5FFFF; 
-                 background-color:#4cc73b; 
-                 background-image: -moz-linear-gradient(top, #4cc73b 0%, #19a54c 100%); 
-                 background-image: -webkit-linear-gradient(top, #4cc73b 0%, #19a54c 100%); 
-                 background-image: -o-linear-gradient(top, #4cc73b 0%, #19a54c 100%); 
-                 background-image: -ms-linear-gradient(top, #4cc73b 0% ,#19a54c 100%); 
-                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#19a54c', endColorstr='#19a54c',GradientType=0 ); 
-                 background-image: linear-gradient(top, #4cc73b 0% ,#19a54c 100%);   
-                 -webkit-box-shadow:2px 2px 2px #bababa, inset 0px 0px 1px #ffffff; 
-                 -moz-box-shadow: 2px 2px 2px #bababa,  inset 0px 0px 1px #ffffff;  
-                 box-shadow:2px 2px 2px #bababa, inset 0px 0px 1px #ffffff;
-            }
-
-            .button3{
-                 text-decoration:none; 
-                 text-align:center; 
-                 padding:5px 5px; 
-                 border:solid 4px #90720a; 
-                 -webkit-border-radius:50px;
-                 -moz-border-radius:50px; 
-                 border-radius: 50px; 
-                 font:15px Arial, Helvetica, sans-serif; 
-                 font-weight:bold; 
-                 color:#E5FFFF; 
-                 background-color:#4cc73b; 
-                 background-image: -moz-linear-gradient(top, #ccc73b 0%, #a9a54c 100%); 
-                 background-image: -webkit-linear-gradient(top, #ccc73b 0%, #a9a54c 100%); 
-                 background-image: -o-linear-gradient(top, #ccc73b 0%, #a9a54c 100%); 
-                 background-image: -ms-linear-gradient(top, #ccc73b 0% ,#a9a54c 100%); 
-                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9a54c', endColorstr='#a9a54c',GradientType=0 ); 
-                 background-image: linear-gradient(top, #ccc73b 0% ,#a9a54c 100%);   
-                 -webkit-box-shadow:2px 2px 2px #bababa, inset 0px 0px 1px #ffffff; 
-                 -moz-box-shadow: 2px 2px 2px #bababa,  inset 0px 0px 1px #ffffff;  
-                 box-shadow:2px 2px 2px #bababa, inset 0px 0px 1px #ffffff;
-            }
-
         </style>
     </head>
     <body>
@@ -112,29 +44,24 @@
             <div class="container" style="height:1350px;">
                 <header>
                     <div style="position:relative">
-                        <div class="shape_1" style="left:550px;top:-95px;width:285px;height:142px;z-index:1;position:absolute;">
-                        <img src="images/sunny.png" height="142" width="285" />
-                        </div>
-                    </div>
-                    <div style="position:relative">
-                        <div class="shape_1" style="left:360px;top:-130px;width:122px;height:153px;z-index:2;position:absolute">
+                        <div class="shape_1" style="left:360px;top:-130px;width:122px;height:153px;z-index:0;position:absolute">
                         <img src="images/logo3.png" height="153" width="122" />
                         </div>
                     </div>
                     <div style="position:relative">
-                        <div class="shape_2" style="left:-26px;top:-131px;width:351px;height:183px;z-index:3;position:absolute;">
-                            <img src="images/cloud3.png" height="183" width="351" />
+                        <div class="shape_2" style="left:-50px;top:-250px;width:351px;height:183px;z-index:0;position:absolute;">
+                            <img src="images/cloudsun.png" height="574" width="960" />
                         </div>
                     </div>
                     <div style="position:relative">
-                        <div class="shape_3" style="left:-1px;top:-2px;width:799px;height:56px;z-index:3;position:absolute;">
+                        <div class="shape_3" style="left:-1px;top:-2px;width:801px;height:56px;z-index:3;position:absolute;">
                         </div>
                     </div>
                     <div style="position:relative">
                         <div class="shape_2" style="left:0px;top:0px;width:790px;height:0px;z-index:5;position:absolute;">
                             <div style="margin: 0px 0px 0px 0px; ">
                                 <p style="line-height:41px;text-align:center;margin-top:10px;margin-bottom:10px;" class="Style4">Weather<span class="Style8">Pi</span>
-                                <span class="Style6"> Config:</span>
+                                <span class="Style4"> Config:</span>
                                 </p>
                             </div>
                         </div>
@@ -143,7 +70,7 @@
                 <div class="content" data-minheight="840">
                     <form method="post" enctype="multipart/form-data">
                         <div style="position:relative">
-                            <div class="shape_0" style="left:10px;top:70px;width:250px;height:130px;z-index:0;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_0" style="left:10px;top:70px;width:250px;height:130px;z-index:2;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
                                     <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style1">{camera}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{activated1}<input type="checkbox" value="1" name="Camera_active" id="camera_enabled" value="1"></p>
@@ -156,7 +83,7 @@
                             </div>
                         </div>
                         <div style="position:relative">
-                            <div class="shape_13" style="left:10px;top:205px;width:250px;height:200px;z-index:1;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_13" style="left:10px;top:205px;width:250px;height:200px;z-index:2;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
                                     <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style1">{baro}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{activated2}<input type="checkbox" name="BMP_active" value="1" id="pressure_enabled"></p>
@@ -172,7 +99,7 @@
                         </div>
 
                         <div style="position:relative">
-                            <div class="shape_23" style="left:10px;top:410px;width:250px;height:390px;z-index:8;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_23" style="left:10px;top:410px;width:250px;height:390px;z-index:2;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
                                     <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style18">{server_ext}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{server_meteotemplate}<input type="checkbox" name="Meteotemplate_enabled" value="1" id="Meteotemplate_enabled"></p>
@@ -202,14 +129,14 @@
                             </div>
                         </div>
                         <div style="position:relative">
-                            <div class="shape_5" style="left:270px;top:70px;width:250px;height:70px;z-index:20;position:absolute;border-size:1px;border: 2px solid red; border-radius: 10px;">
+                            <div class="shape_5" style="left:270px;top:70px;width:250px;height:70px;z-index:2;position:absolute;border-size:1px;border: 2px solid red; border-radius: 10px;">
                                 <div style="margin: 0px 0px 0px 0px; ">
                                     <p style="text-align:center;margin-top:10px;margin-bottom:11px;" class="Style1">{ver}<br /><span class="Style18">{client_version}</span></p>
                                 </div>
                             </div>
                         </div>
                         <div style="position:relative">
-                            <div class="shape_9" style="left:270px;top:145px;width:250px;height:165px;z-index:3;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_9" style="left:270px;top:145px;width:250px;height:165px;z-index:2;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
                                     <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style1">{temp}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{activated2}<input type="checkbox" name="DHT_active" id="dht_enabled" value="1"></p>
@@ -239,7 +166,7 @@
                             </div>
                         </div>
                         <div style="position:relative">
-                            <div class="shape_15" style="left:270px;top:315px;width:250px;height:200px;z-index:4;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_15" style="left:270px;top:315px;width:250px;height:215px;z-index:2;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
                                     <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style1">{gauge}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{activated2}<input type="checkbox" name="Pluvio_active" value="1" id="rain_enabled"></p>
@@ -270,7 +197,7 @@
                             </div>
                         </div>
                         <div style="position:relative">
-                            <div class="shape_11" style="left:270px;top:520px;width:250px;height:135px;z-index:5;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_11" style="left:270px;top:535px;width:250px;height:135px;z-index:2;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
                                     <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style1">{client_log}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{backups}<input type="text" name="Num_bck" value="{logging_backup_count}" size="2" maxlength="2"></p>
@@ -296,7 +223,7 @@
                             </div>
                         </div>
                         <div style="position:relative">
-                            <div class="shape_11" style="left:270px;top:660px;width:250px;height:80px;z-index:5;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_11" style="left:270px;top:675px;width:250px;height:80px;z-index:2;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px;">
                                     <p style="line-height:21px;margin-top:opx;margin-bottom:11px;text-align:center;" class="Style1">{interface}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{lang}
@@ -322,7 +249,7 @@
 
                         <div style="position:relative">
                             <a href="">
-                            <div style="left:270px;top:745px;width:250px;height:100px;z-index:6;position:absolute;border-size:1px;border:2px solid grey;border-radius:10px;">
+                            <div style="left:270px;top:760px;width:250px;height:100px;z-index:6;position:absolute;border-size:1px;border:2px solid grey;border-radius:10px;">
                                 <div style="margin: 8px 2.16px 2.16px 2.16px; ">
                                     <p style="line-height:22px;text-align:center;margin-top:0px;margin-bottom:0px;" class="Style7">
                                         <input class="button3" type="submit" name="setConfig" value="{update_config}" /> <input class="button3" type="submit" name="configDefaults" value="{default_config}" />
@@ -333,7 +260,7 @@
                         </div>
 
                         <div style="position:relative">
-                            <div class="shape_17" style="left:530px;top:70px;width:250px;height:280px;z-index:6;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_17" style="left:530px;top:70px;width:250px;height:280px;z-index:2;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
                                     <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style1">{anemometer}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{activated2}<input type="checkbox" name="Wind_active" value="1" id="wind_enabled"></p>
@@ -370,7 +297,7 @@
                             </div>
                         </div>
                         <div style="position:relative">
-                            <div class="shape_25" style="left:530px;top:365px;width:250px;height:65px;z-index:7;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_25" style="left:530px;top:365px;width:250px;height:65px;z-index:2;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
                                     <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style1">{vane}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{activated1}<input type="checkbox" name="Vane_active" value="1" id="wind_vane_enabled"></p>
@@ -381,7 +308,7 @@
                             </div>
                         </div>
                         <div style="position:relative">
-                            <div class="shape_25" style="left:535px;top:440px;width:250px;height:69px;z-index:7;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_25" style="left:535px;top:440px;width:250px;height:69px;z-index:2;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
                                     <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style1">{working}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{mode}
@@ -405,7 +332,7 @@
                             </div>
                         </div>
                         <div style="position:relative">
-                            <div class="shape_23" style="left:530px;top:520px;width:250px;height:79px;z-index:8;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_23" style="left:530px;top:520px;width:250px;height:79px;z-index:2;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px; ">
                                     <p style="line-height:21px;margin-top:0px;margin-bottom:11px;text-align:center;" class="Style18">{server_log}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{level}
@@ -442,7 +369,7 @@
                         </div>
                       
                         <div style="position:relative">
-                            <div class="shape_11" style="left:530px;top:825px;width:250px;height:60px;z-index:5;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
+                            <div class="shape_11" style="left:530px;top:825px;width:250px;height:60px;z-index:2;position:absolute;border-size:1px;border: 2px solid grey; border-radius: 10px;">
                                 <div style="margin: 0px 2.16px 0px 2.16px;">
                                     <p style="line-height:21px;margin-top:opx;margin-bottom:11px;text-align:center;" class="Style1">{connection}</p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{modem}<input type="checkbox" name="Huawei_enabled" value="1" id="Huawei_enabled"></p>
@@ -461,7 +388,7 @@
                         </div>
                     </div>
                     <div style="position:relative">
-                        <div class="shape_28" style="left:30px;top:911px;width:740px;height:100 px;z-index:28;position:absolute;">
+                        <div class="shape_28" style="left:30px;top:911px;width:740px;height:100 px;z-index:2;position:absolute;">
                             <div style="margin: 0px 2.16px 0px 2.16px; ">
                                 <p style="line-height:21px;text-align:center;margin-top:0px;margin-bottom:11px;" class="Style1">{upload_app}</p>
                                 <form action="upload_file.php" method="post" enctype="multipart/form-data">
@@ -475,7 +402,7 @@
                     <div style="position:relative">
                         <div style="left:-4px;top:998px;height:43px;background: url('images/shape_shadow_27.png') no-repeat;width:805px;position:absolute;z-index:27">
                         </div>
-                        <div class="shape_27" style="left:-2.5px;top:997.5px;width:805px;height:37px;z-index:27;position:absolute;">
+                        <div class="shape_27" style="left:-2.5px;top:997.5px;width:805px;height:37px;z-index:2;position:absolute;">
                             <img src="images/shape_27.png" height="37" width="805" alt="(placeholder)" />
                         </div>
                     </div>
@@ -491,7 +418,7 @@
                         </div>
                     </div>
                     <div style="position:relative">
-                        <div class="shape_32" style="left:10px;top:1094px;width:780px;height:190px;z-index:32;position:absolute;">
+                        <div class="shape_32" style="left:10px;top:1094px;width:780px;height:190px;z-index:2;position:absolute;">
                             <div style="margin: 0px 2.16px 0px 2.16px; ">
                                 <p style="line-height:21px;text-align:center;margin-top:0px;margin-bottom:11px;" class="Style1">{manage_db}</p>
                                     <form action="prune.php" method="get">
@@ -511,11 +438,11 @@
                 </div>
                 <footer data-top='1016' data-height='134'>
                     <div style="position:relative">
-                        <div class="shape_7" style="left:0px;top:1151px;width:800px;height:134px;z-index:7;position:absolute;">
+                        <div class="shape_7" style="left:0px;top:1151px;width:800px;height:134px;z-index:2;position:absolute;">
                             <img src="images/grass.png" height="134" width="800" />
                         </div>
-                        <div class="shape_33" style="left:0px;top:1271px;width:800px;heigh:130px;z-index:100;position:absolute;">
-                            <p>{copy}
+                        <div class="shape_33" style="left:0px;top:1271px;width:800px;heigh:130px;z-index:200;position:absolute;">
+                            <p class="Style3" style="text-align:center;margin-top:20px;margin-bottom:10px;">{copy}
                             </p>
                         </div>
                     </div>
