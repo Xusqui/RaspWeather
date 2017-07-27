@@ -23,11 +23,11 @@ class Wind:
       self._register_callback(self._revolutions.calibration_add_edge_and_log)
     else:
       self._register_callback(self._revolutions.add_edge)
-      self._stats = wind_stats.WindStats(C.WIND_HSF(), C.WIND_LSF(), C.WIND_MAX_ROTATION(),
+      self._stats = wind_stats.WindStats(C.WIND_HSF(), C.WIND_LSF(), C.WIND_DIAMETER_MM, C.WIND_MAX_ROTATION(),
                                          self._startup_time)
     self._log.info('initialized - CALIBRATION MODE' if calibration_mode else 'initialized')
-    self._log.info('pin=%d edges=%d debounce=%dms LSF=%g HSF=%g max=%dms' % (
-        C.WIND_INPUT_PIN(), C.WIND_EDGES_PER_REV(), C.WIND_DEBOUNCE_MILLIS(), C.WIND_LSF(),
+    self._log.info('pin=%d edges=%d debounce=%dms DIAM=%d LSF=%g HSF=%g max=%dms' % (
+        C.WIND_INPUT_PIN(), C.WIND_EDGES_PER_REV(), C.WIND_DEBOUNCE_MILLIS(), C.WIND_DIAMETER_MM(), C.WIND_LSF(),
         C.WIND_HSF(), C.WIND_MAX_ROTATION()))
 
   def _register_callback(self, callback):
