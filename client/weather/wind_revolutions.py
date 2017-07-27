@@ -23,7 +23,7 @@ class Revolutions:
   def add_edge(self, pin_ignored):
     """Count one edge."""
     with self._lock:
-      self._edges = (self._edges + 1) % (self._edges_per_rev * 10)
+      self._edges = (self._edges + 1) % (self._edges_per_rev * 5)
       if self._edges == 0:
         self._revs.append(common.timestamp())
 
