@@ -3,10 +3,11 @@ import common
 class WindStats:
   """Calculates wind stats from a sequence of timestamps representing revolutions."""
 
-  def __init__(self, hsf, lsf, max_rotation, start_timestamp):
+  def __init__(self, hsf, lsf, diameter, max_rotation, start_timestamp):
     """start_timestamp: Startup of the wind sensor."""
     self._hsf = hsf
     self._lsf = lsf
+    self._diameter = diameter
     self._max_rotation = max_rotation
     self._start_timestamp = start_timestamp
     self._previous_timestamp = start_timestamp
@@ -92,4 +93,8 @@ class WindStats:
     if duration >= self._max_rotation:
       return 0.0
     rps = common.duration_to_rps(duration)  # rotations per second
-    return (self._lsf / (1.0 + rps) + self._hsf * rps)
+    rpm = rps * 60 # rotations per minute
+    kmh_Orig = (self._lsf / (1.0 + rps) + self._hsf * rps) # Original (Zieren's) formula to calculate wind speed
+    kmh_New = self._diameter() / 2000 * rpm * 0.10472 * 3.6 # New (Xisco's) formula (easier)
+    #return (self._lsf / (1.0 + rps) + self._hsf * rps)
+    return kmh_New
