@@ -70,7 +70,7 @@ if (isset($_POST['clearAll'])) {
     $db->setConfig('c:wind_input_pin', $_POST['Wind_pin']);
     //$db->setConfig('c:wind_low_speed_factor', $_POST['Wind_lsf']);
     $db->setConfig('c:wind_max_rotation_seconds', $_POST['Wind_rot']);
-    $db->setConfig('c:wind_diameter', $_POST['Wind_diameter']);
+    $db->setConfig('c:wind_diameter_mm', $_POST['Wind_diameter_mm']);
     $db->setConfig('c:wind_pud', $_POST['Wind_pud']);
     if (isset($_POST['Vane_active'])){
         $db->setconfig('c:wind_vane_enabled', 1);
