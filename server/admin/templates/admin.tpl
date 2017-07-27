@@ -274,7 +274,7 @@
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{hsf}<input type="text" name="Wind_hsf" value="{wind_high_speed_factor}" size="6" maxlength="6"></p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{lsf}<input type="text" name="Wind_lsf" value="{wind_low_speed_factor}" size="6" maxlength="6"></p>
                                     -->
-                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{diameter}<input type="text" name="Wind_diameter" value="{wind_diameter_mm}" size="6" maxlength="4"></p>
+                                    <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{diameter}<input type="text" name="Wind_diameter_mm" value="{wind_diameter_mm}" size="6" maxlength="4"></p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{max_rot}<input type="text" name="Wind_rot" value="{wind_max_rotation_seconds}" size="2" maxlength="2"></p>
                                     <p style="line-height:14px;margin-bottom:11px;margin-top:0px;" class="Style3">{pud}
                                         <select name="Wind_pud" id="wind_pud">
