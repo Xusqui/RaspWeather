@@ -30,4 +30,4 @@ def timestamp_to_string(timestamp):
 
 def duration_to_rps(duration):
   """Convert duration (in millis) to rotations per second."""
-  return 10000.0 / duration
+  return 5000.0 / duration
